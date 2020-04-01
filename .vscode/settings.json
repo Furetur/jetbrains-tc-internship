@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+    },
+    {
+      "language": "typescriptreact",
+    }
+  ]
+}
