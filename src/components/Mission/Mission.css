@@ -8,7 +8,7 @@
   flex-wrap: nowrap;
   align-items: flex-end;
   /* other properties */
-  width: 350px;
+  width: 270px;
   margin: 15px;
   background: var(--primary-color);
   box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
@@ -62,4 +62,10 @@
 
 .card>.footer>.timer-label {
     font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 400px) {
+  .card {
+      width: 350px;
   }
+}

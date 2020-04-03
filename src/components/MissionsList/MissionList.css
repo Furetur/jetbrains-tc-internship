@@ -1,8 +1,25 @@
 .MissionList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: flex-start;
-    width: 100%;
+    width: 320px;
     padding: 10px;
+}
+
+@media only screen and (min-width: 400px) {
+    .MissionList {
+        width: 400px;
+    }
+}
+
+@media only screen and (min-width: 780px) {
+    .MissionList {
+        width: 780px;
+    }
+}
+@media only screen and (min-width: 1160px) {
+    .MissionList {
+        width: 1160px;
+    }
 }

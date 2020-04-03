@@ -14,3 +14,9 @@ body {
   color: var(--text-color);
   font-family: "Roboto", sans-serif;
 }
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
