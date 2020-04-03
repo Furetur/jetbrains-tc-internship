@@ -8,7 +8,6 @@ import {
 } from '../../utils/date-utils';
 import areMissionDatasEqual from '../../utils/areMissionDatasEqual';
 import Timer from '../Timer/Timer';
-import isMissionFullDateGiven from '../../utils/isMissionFullDateGiven';
 import getReadableDateFromMissionData from '../../utils/getReadableDateFromMissionData';
 
 interface Props {
