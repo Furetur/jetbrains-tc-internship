@@ -1,5 +1,18 @@
 .Header {
     width: 100%;
-    height: 50px;
-    background: blue;
+    height: 70px;
+    /* header as a flexbox */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: var(--primary-color); 
+}
+
+.Header h1 {
+    /* as a flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
 }

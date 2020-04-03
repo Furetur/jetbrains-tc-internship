@@ -12,6 +12,20 @@ export type MissionData = {
   location: string;
 };
 
+export type DefinedTimeMissionData = {
+  mission: string;
+  launch: {
+    years: number;
+    months: number;
+    date: number;
+    hours: number;
+    minutes: number;
+    quarter: number;
+  };
+  vehicle: string;
+  location: string;
+};
+
 const data: MissionData[] = [
   {
     mission: 'Starlink-3',

@@ -1,0 +1,14 @@
+.Timer .number {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+#number-of-days {
+  margin-left: 0px;
+}
+
+.Timer .unit {
+  font-size: 1rem;
+}

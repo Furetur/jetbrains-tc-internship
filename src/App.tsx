@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import logo from './logo.svg';
+import './theme.css';
 import './App.css';
 import Header from './components/Header/Header';
 import MissionList from './components/MissionsList/MissionList';

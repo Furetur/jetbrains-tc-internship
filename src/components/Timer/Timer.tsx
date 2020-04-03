@@ -4,6 +4,7 @@ import {
   areDatesEqual,
   differenceInDaysHoursMinutes,
 } from '../../utils/date-utils';
+import './Timer.css';
 
 interface Props {
   eventDate: Date;
@@ -21,10 +22,16 @@ export default function Timer({ eventDate, currentDate }: Props): ReactElement {
   return eventIsNow ? (
     <div>The event is now</div>
   ) : (
-    <div>
-      {!countDown ? 'The event was ' : 'The event is in '}
-      {daysLeft} days {hoursLeft} hours {minutesLeft} minutes
-      {!countDown ? ' ago' : ''}
-    </div>
+    <p className="Timer">
+      <span id="number-of-days" className="number">
+          {daysLeft}
+      </span>
+      <span className="unit">days</span>
+      <span className="number">{hoursLeft}</span>
+      <span className="unit">hours</span>
+      <span className="number">{minutesLeft}</span>
+      <span className="unit">minutes</span>
+      {!countDown ? <span className="optional-ago"> ago</span> : null}
+    </p>
   );
 }
