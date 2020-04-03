@@ -61,13 +61,7 @@ export const getLaunchDate = (missionData: MissionData): Date => {
   ) {
     throw new Error('Date is not filly provided');
   }
-  const launchDateMiliseconds = Date.UTC(
-    years,
-    months - 1,
-    date,
-    hours,
-    minutes,
-  );
+  const launchDateMiliseconds = Date.UTC(years, months, date, hours, minutes);
   return new Date(launchDateMiliseconds);
 };
 
