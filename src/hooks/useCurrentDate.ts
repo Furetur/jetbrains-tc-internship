@@ -27,7 +27,7 @@ const useCurrentDateNoSeconds = (updateEvery: number): Date => {
     return (): void => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [updateEvery]);
 
   return date;
 };
