@@ -9,10 +9,11 @@
   align-items: flex-end;
   /* other properties */
   width: 350px;
-  margin: 20px 15px;
+  margin: 15px;
   background: var(--primary-color);
   box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
     0 12px 17px 2px rgba(0, 0, 0, 0.14), 0 5px 22px 4px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 7px 8px -4px rgba(0,0,0,.2), 0 12px 17px 2px rgba(0,0,0,.14), 0 5px 22px 4px rgba(0,0,0,.12);
   border-radius: 10px;
 }
 .card h1 {
