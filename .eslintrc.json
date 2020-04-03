@@ -21,5 +21,8 @@
         "version": "detect"
       }
     },
-    "parser": "@typescript-eslint/parser"
+    "parser": "@typescript-eslint/parser",
+    "globals": {
+      "process": true
+    }
   }
