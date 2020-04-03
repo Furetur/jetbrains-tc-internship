@@ -4,7 +4,7 @@ import './Header.css';
 export default function Header(): ReactElement {
   return (
     <div className="Header">
-      <h1>SpaceX Mission</h1>
+      <h1>SpaceX Missions</h1>
     </div>
   );
 }
