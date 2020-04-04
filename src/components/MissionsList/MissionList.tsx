@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect } from 'react';
 import { MissionData } from '../../missionsData';
 import Mission from '../Mission/Mission';
 import './MissionList.css';
-import useCurrentDateNoSeconds from '../../hooks/useCurrentDate';
+import useCurrentDateNoSeconds from '../../hooks/useCurrentDateNoSeconds';
 import isMissionFullDateGiven from '../../utils/isMissionFullDateGiven';
 
 interface Props {
