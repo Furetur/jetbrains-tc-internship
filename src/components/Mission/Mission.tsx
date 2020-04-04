@@ -4,8 +4,13 @@ import './Mission.css';
 import { areDatesEqual, getLaunchDate } from '../../utils/date-utils';
 import areMissionDatasEqual from '../../utils/areMissionDatasEqual';
 import Timer from '../Timer/Timer';
-import getReadableDateFromMissionData from '../../utils/getReadableDateFromMissionData';
+import {
+  getReadableDateFromMissionData,
+  getReadableLocalDate,
+} from '../../utils/getReadableDate';
 import launchAlreadyHappened from '../../utils/launchAlreadyHappened';
+import isMissionFullDateGiven from '../../utils/isMissionFullDateGiven';
+import isMissionFullDateGivenExceptMinutes from '../../utils/isMissionFullDateGivenExceptMinutes';
 
 interface Props {
   missionData: MissionData;
@@ -65,8 +70,15 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
             <span>Location </span>
             {missionData.location}
           </li>
+          {isMissionFullDateGiven(missionData) ||
+          isMissionFullDateGivenExceptMinutes(missionData) ? (
+            <li>
+              <span>Launch Date (LOCAL) </span>
+              {getReadableLocalDate(missionData)}
+            </li>
+          ) : null}
           <li>
-            <span>Launch Date </span>
+            <span>Launch Date (UTC) </span>
             {getReadableDateFromMissionData(missionData)}
           </li>
         </ul>
@@ -88,7 +100,7 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
           </span>
           <Timer
             currentDate={currentDate as Date}
-            eventDate={getLaunchDate(missionData)}
+            eventDate={getLaunchDate(missionData as DefinedTimeMissionData)}
           />
         </div>
       ) : null}

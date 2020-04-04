@@ -1,6 +1,8 @@
-import { MissionData } from '../missionsData';
+import { MissionData, DefinedTimeMissionData } from '../missionsData';
 
-const isMissionFullDateGiven = (missionData: MissionData): boolean => {
+const isMissionFullDateGiven = (
+  missionData: MissionData,
+): missionData is DefinedTimeMissionData => {
   const { months, date, hours, minutes, quarter } = missionData.launch;
   return (
     months !== null &&

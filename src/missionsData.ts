@@ -26,6 +26,20 @@ export type DefinedTimeMissionData = {
   location: string;
 };
 
+export type DefinedTimeMissionDataWithoutMinutes = {
+  mission: string;
+  launch: {
+    years: number;
+    months: number;
+    date: number;
+    hours: number;
+    minutes: null;
+    quarter: number;
+  };
+  vehicle: string;
+  location: string;
+};
+
 const data: MissionData[] = [
   {
     mission: 'Starlink-3',

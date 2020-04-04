@@ -12,7 +12,7 @@ describe('Mission', () => {
     vehicle: 'Falcon',
     location: 'SpaceX',
     launch: {
-      years: 1,
+      years: 2020,
       months: 2,
       date: 3,
       hours: 4,
@@ -71,15 +71,40 @@ describe('Mission', () => {
     );
   });
 
-  test('should display full mission date', () => {
+  test('should display full mission utc date', () => {
     act(() => {
       render(
         <Mission timer={false} missionData={missionData} />,
         container as Element,
       );
     });
-    expect(container?.querySelectorAll('.data-list li')[2]).toHaveTextContent(
-      'Launch Date 3 Mar 1 at 4:05',
+    expect(container?.querySelectorAll('.data-list li')[3]).toHaveTextContent(
+      'Launch Date (UTC) 3 Mar 2020 at 4:05',
+    );
+  });
+
+  test('should display full mission utc date without minutes', () => {
+    const missionData1: MissionData = {
+      mission: 'The Best Mission',
+      vehicle: 'Falcon',
+      location: 'SpaceX',
+      launch: {
+        years: 2020,
+        months: 2,
+        date: 3,
+        hours: 4,
+        minutes: null,
+        quarter: 2,
+      },
+    };
+    act(() => {
+      render(
+        <Mission timer={false} missionData={missionData1} />,
+        container as Element,
+      );
+    });
+    expect(container?.querySelectorAll('.data-list li')[3]).toHaveTextContent(
+      'Launch Date (UTC) 3 Mar 2020 at 4:--',
     );
   });
 

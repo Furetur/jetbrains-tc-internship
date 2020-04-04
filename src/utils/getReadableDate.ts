@@ -1,4 +1,9 @@
-import { MissionData } from '../missionsData';
+import {
+  MissionData,
+  DefinedTimeMissionData,
+  DefinedTimeMissionDataWithoutMinutes,
+} from '../missionsData';
+import { getLaunchDate } from './date-utils';
 
 const monthNames = [
   'Jan',
@@ -22,7 +27,9 @@ const formatMinutes = (minutes: number): string => {
   return minutes.toString();
 };
 
-const getReadableDateFromMissionData = (missionData: MissionData): string => {
+export const getReadableDateFromMissionData = (
+  missionData: MissionData,
+): string => {
   const { years, months, date, hours, minutes, quarter } = missionData.launch;
   const monthIsNotGiven = months === null;
   const dateIsNotGiven = date === null;
@@ -77,4 +84,26 @@ const getReadableDateFromMissionData = (missionData: MissionData): string => {
   return years.toString();
 };
 
-export default getReadableDateFromMissionData;
+export const getReadableLocalDate = (
+  missionData: DefinedTimeMissionData | DefinedTimeMissionDataWithoutMinutes,
+): string => {
+  const minutesAreNotGiven = missionData.launch.minutes === null;
+
+  // we copy mission data to avoid mutating the original
+  const copyMissionData = { ...missionData, launch: { ...missionData.launch } };
+  // if minutes are not given replace them with 0
+  copyMissionData.launch.minutes = minutesAreNotGiven
+    ? 0
+    : copyMissionData.launch.minutes;
+
+  const launchDate = getLaunchDate(copyMissionData as DefinedTimeMissionData);
+  const date = launchDate.getDate();
+  const month = monthNames[launchDate.getMonth()];
+  const year = launchDate.getFullYear();
+  const hours = launchDate.getHours();
+  const minutes = launchDate.getMinutes();
+
+  return `${date} ${month} ${year} at ${hours}:${
+    minutesAreNotGiven ? '--' : formatMinutes(minutes)
+  }`;
+};

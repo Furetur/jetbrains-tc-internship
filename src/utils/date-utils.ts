@@ -1,4 +1,4 @@
-import { MissionData } from '../missionsData';
+import { DefinedTimeMissionData } from '../missionsData';
 
 const MILISECONDS_IN_MINUTE = 1000 * 60;
 const HOURS_IN_DAY = 24;
@@ -50,7 +50,7 @@ export const differenceInDaysHoursMinutes = (
   return [diffInDays, remainderInHours, remainderInMinutes];
 };
 
-export const getLaunchDate = (missionData: MissionData): Date => {
+export const getLaunchDate = (missionData: DefinedTimeMissionData): Date => {
   const { years, months, date, hours, minutes } = missionData.launch;
   if (
     years === null ||

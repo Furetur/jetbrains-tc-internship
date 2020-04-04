@@ -1,5 +1,5 @@
 import { MissionData } from '../../missionsData';
-import getReadableDateFromMissionData from '../getReadableDateFromMissionData';
+import { getReadableDateFromMissionData } from '../getReadableDate';
 
 describe('getReadableDateFromMissionData()', () => {
   test('should return year for data that contains only year', () => {
