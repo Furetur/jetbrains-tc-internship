@@ -1,14 +1,11 @@
 import React, { ReactElement, memo, useEffect } from 'react';
 import { MissionData, DefinedTimeMissionData } from '../../missionsData';
 import './Mission.css';
-import {
-  areDatesEqual,
-  getLaunchDate,
-  compareDates,
-} from '../../utils/date-utils';
+import { areDatesEqual, getLaunchDate } from '../../utils/date-utils';
 import areMissionDatasEqual from '../../utils/areMissionDatasEqual';
 import Timer from '../Timer/Timer';
 import getReadableDateFromMissionData from '../../utils/getReadableDateFromMissionData';
+import launchAlreadyHappened from '../../utils/launchAlreadyHappened';
 
 interface Props {
   missionData: MissionData;
@@ -36,14 +33,6 @@ const areMissionPropsEqual = (prevProps: Props, newProps: Props): boolean => {
       newProps.currentDate as Date,
     ) && areMissionDatasEqual(prevProps.missionData, newProps.missionData)
   );
-};
-
-const launchAlreadyHappened = (
-  missionData: DefinedTimeMissionData,
-  currentDate: Date,
-): boolean => {
-  const launchDate = getLaunchDate(missionData);
-  return compareDates(launchDate, currentDate) < 0;
 };
 
 const launchIsNow = (
