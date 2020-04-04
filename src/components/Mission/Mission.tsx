@@ -73,7 +73,7 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
           {isMissionFullDateGiven(missionData) ||
           isMissionFullDateGivenExceptMinutes(missionData) ? (
             <li>
-              <span>Launch Date (LOCAL) </span>
+              <span>Launch Date (Local) </span>
               {getReadableLocalDate(missionData)}
             </li>
           ) : null}
