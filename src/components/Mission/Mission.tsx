@@ -46,6 +46,14 @@ const launchAlreadyHappened = (
   return compareDates(launchDate, currentDate) < 0;
 };
 
+const launchIsNow = (
+  missionData: DefinedTimeMissionData,
+  currentDate: Date,
+): boolean => {
+  const launchDate = getLaunchDate(missionData);
+  return areDatesEqual(launchDate, currentDate);
+};
+
 function Mission({ missionData, currentDate, timer }: Props): ReactElement {
   useEffect(() => {
     console.log(`Mission for ${missionData.mission} rendered`);
@@ -61,15 +69,16 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
       <div className="body">
         <ul className="data-list">
           <li>
-            <span>Vehicle</span>
+            <span>Vehicle </span>
             {missionData.vehicle}
           </li>
           <li>
-            <span>Location</span>
+            <span>Location </span>
             {missionData.location}
           </li>
           <li>
-            <span>Launch Date</span>{getReadableDateFromMissionData(missionData)}
+            <span>Launch Date </span>
+            {getReadableDateFromMissionData(missionData)}
           </li>
         </ul>
       </div>
@@ -81,6 +90,11 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
               currentDate as Date,
             )
               ? 'The launch was'
+              : launchIsNow(
+                  missionData as DefinedTimeMissionData,
+                  currentDate as Date,
+                )
+              ? 'The launch is'
               : 'The launch is in'}
           </span>
           <Timer
