@@ -20,17 +20,19 @@ export default function Timer({ eventDate, currentDate }: Props): ReactElement {
     : differenceInDaysHoursMinutes(currentDate, eventDate);
 
   return eventIsNow ? (
-    <div>The event is now</div>
+    <p className="Timer">
+      <span className="number">Now</span>
+    </p>
   ) : (
     <p className="Timer">
       <span id="number-of-days" className="number">
-          {daysLeft}
+        {daysLeft}
       </span>
-      <span className="unit">days</span>
+      <span className="unit"> {daysLeft === 1 ? 'day' : 'days'} </span>
       <span className="number">{hoursLeft}</span>
-      <span className="unit">hours</span>
+      <span className="unit"> {hoursLeft === 1 ? 'hour' : 'hours'} </span>
       <span className="number">{minutesLeft}</span>
-      <span className="unit">minutes</span>
+      <span className="unit"> {minutesLeft === 1 ? 'minute' : 'minutes'}</span>
       {!countDown ? <span className="optional-ago"> ago</span> : null}
     </p>
   );
