@@ -42,7 +42,7 @@ describe('Mission', () => {
         container as Element,
       );
     });
-    expect(container?.querySelector('h1')).toHaveTextContent(
+    expect(container?.querySelector('h2')).toHaveTextContent(
       'The Best Mission',
     );
   });
