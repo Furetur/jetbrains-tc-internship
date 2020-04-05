@@ -58,8 +58,8 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
   }
 
   return (
-    <div className="Mission card">
-      <h1>{missionData.mission}</h1>
+    <div className="Mission card" role="listitem">
+      <h2>{missionData.mission}</h2>
       <div className="body">
         <ul className="data-list">
           <li>
@@ -84,7 +84,12 @@ function Mission({ missionData, currentDate, timer }: Props): ReactElement {
         </ul>
       </div>
       {timer ? (
-        <div className="footer">
+        <div
+          className="footer"
+          role="timer"
+          aria-atomic="true"
+          aria-hidden="false"
+        >
           <span className="timer-label">
             {launchAlreadyHappened(
               missionData as DefinedTimeMissionData,

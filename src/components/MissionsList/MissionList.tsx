@@ -17,7 +17,7 @@ export default function MissionList({ missions }: Props): ReactElement {
   });
 
   return (
-    <div className="MissionList">
+    <div className="MissionList" role="list">
       {missions.map((mission, index) =>
         isMissionFullDateGiven(mission) ? (
           <Mission
